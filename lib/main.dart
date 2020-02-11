@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/animation.dart';
 
 void main() => runApp(MyApp());
 
@@ -41,12 +42,13 @@ class _MyHomePageState extends State<MyHomePage> {
 //      appBar: AppBar(
 //        title: Text(widget.title),
 //      ),
+
       body: Center(
 
         child: Column(
 
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
               'WE',
@@ -63,12 +65,53 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
+
       ),
-//      floatingActionButton: FloatingActionButton(
-//        onPressed: _incrementCounter,
-//        tooltip: 'Increment',
-//        child: Icon(Icons.play_circle_filled),
-//      ), // This trailing comma makes auto-formatting nicer for build methods.
+      bottomNavigationBar:  BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: Container(
+                child: Text(
+                  "FIRST",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold ),
+                ),
+                alignment: Alignment(0.0, 0.0),
+                height: 60,
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                child: Text(
+                  "SECOND",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold ),
+                ),
+                alignment: Alignment(0.0, 0.0),
+                height: 60,
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                child: Text(
+                  "THIRD",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold ),
+                ),
+                alignment: Alignment(0.0, 0.0),
+                height: 60,
+              ),
+            )
+          ],
+        ),
+    )
+
+
+
     );
+    return SizedBox.shrink();
   }
 }
