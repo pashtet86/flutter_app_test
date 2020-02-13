@@ -1,5 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/animation.dart';
+//import 'package:flutter/animation.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,6 +18,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -27,21 +30,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _selectedIndex = 0;
 
-  void _incrementCounter() {
+  void _onItemTapped(int index) {
     setState(() {
-      _counter++;
+      _selectedIndex = index;
     });
+    print(this._selectedIndex);
   }
+
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-//      appBar: AppBar(
-//        title: Text(widget.title),
-//      ),
 
       body: Center(
 
@@ -67,51 +69,31 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
 
       ),
-      bottomNavigationBar:  BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              flex: 2,
-              child: Container(
-                child: Text(
-                  "FIRST",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold ),
-                ),
-                alignment: Alignment(0.0, 0.0),
-                height: 60,
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                child: Text(
-                  "SECOND",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold ),
-                ),
-                alignment: Alignment(0.0, 0.0),
-                height: 60,
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                child: Text(
-                  "THIRD",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold ),
-                ),
-                alignment: Alignment(0.0, 0.0),
-                height: 60,
-              ),
-            )
-          ],
-        ),
-    )
+      bottomNavigationBar: BottomNavigationBar(
+        iconSize: 30.0,
+//        height: Size.fromHeight(30),
+        selectedItemColor: Color.fromRGBO(255, 0, 150, 1),
+        backgroundColor: Color.fromRGBO(0, 240, 240, 1),
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.supervised_user_circle),
+            title: Text('People'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.live_tv),
+            title: Text('News'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
 
 
 
     );
-    return SizedBox.shrink();
   }
 }
