@@ -8,9 +8,9 @@ class People extends StatefulWidget {
 class _PeopleState extends State<People> {
 
   List<String> people = [
-    'Pashtet',
-    'Tur',
-    'Kozhokar',
+    'Pavel Bazhenov',
+    'Pavel Shishko',
+    'Pavel Kozhokar',
   ];
 
   Widget personTemplate(person){
@@ -35,6 +35,11 @@ class _PeopleState extends State<People> {
                   style: TextStyle( fontSize: 14.0, fontWeight: FontWeight.bold),
                 )
               ],
+            ),
+            Text(
+              'Kiev',
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.right,
             )
 
           ],
