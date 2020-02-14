@@ -13,6 +13,36 @@ class _PeopleState extends State<People> {
     'Kozhokar',
   ];
 
+  Widget personTemplate(person){
+    return Card(
+      margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+      child: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Row(
+          children: <Widget>[
+            Image.network('https://picsum.photos/id/237/50/50'),
+            SizedBox(width: 20),
+            Column(
+//              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  person,
+                  style: TextStyle( fontSize: 16.0),
+                ),
+                Text(
+                  'Role',
+                  style: TextStyle( fontSize: 14.0, fontWeight: FontWeight.bold),
+                )
+              ],
+            )
+
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +52,9 @@ class _PeopleState extends State<People> {
         centerTitle: true,
         elevation: 2,
       ),
-      body: SafeArea(
-        child: Column(
-          children: people.map((person) => Text(person)).toList(),
-        ),
+      body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: people.map((person) => personTemplate(person)).toList(),
       ),
 
     );
