@@ -7,6 +7,10 @@ class People extends StatefulWidget {
 
 class _PeopleState extends State<People> {
 
+  void _goToPerson() {
+    Navigator.pushNamed(context, '/person');
+  }
+
   List<String> people = [
     'Pavel Bazhenov',
     'Pavel Shishko',
@@ -18,32 +22,37 @@ class _PeopleState extends State<People> {
       margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
       child: Padding(
         padding: const EdgeInsets.all(15),
-        child: Row(
-          children: <Widget>[
-            Image.network('https://picsum.photos/id/237/50/50'),
-            SizedBox(width: 20),
-            Column(
+        child: InkWell(
+          onTap: _goToPerson,
+          child: Row(
+            children: <Widget>[
+              Image.network('https://picsum.photos/id/237/50/50'),
+              SizedBox(width: 20),
+              Column(
 //              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  person,
-                  style: TextStyle( fontSize: 16.0),
-                ),
-                Text(
-                  'Role',
-                  style: TextStyle( fontSize: 14.0, fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
-            Text(
-              'Kiev',
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.right,
-            )
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    person,
+                    style: TextStyle( fontSize: 16.0),
+                  ),
+                  Text(
+                    'Role',
+                    style: TextStyle( fontSize: 14.0, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              Spacer(flex: 2),
+              Text(
+                'Kiev',
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.right,
+              )
 
-          ],
-        ),
+            ],
+          ),
+        )
+
       ),
     );
   }
@@ -61,6 +70,27 @@ class _PeopleState extends State<People> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: people.map((person) => personTemplate(person)).toList(),
       ),
+//      bottomNavigationBar: BottomNavigationBar(
+//        iconSize: 30.0,
+//        selectedItemColor: Color.fromRGBO(255, 0, 150, 1),
+//        backgroundColor: Color.fromRGBO(0, 240, 240, 1),
+//        items: const <BottomNavigationBarItem>[
+//          BottomNavigationBarItem(
+//            icon: Icon(Icons.home),
+//            title: Text('Home'),
+//          ),
+//          BottomNavigationBarItem(
+//            icon: Icon(Icons.supervised_user_circle),
+//            title: Text('People'),
+//          ),
+//          BottomNavigationBarItem(
+//            icon: Icon(Icons.live_tv),
+//            title: Text('News'),
+//          ),
+//        ],
+//        currentIndex: _selectedIndex,
+//        onTap: _onItemTapped,
+//      ),
 
     );
   }
