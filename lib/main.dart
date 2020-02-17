@@ -45,7 +45,6 @@ class _BrainAppState extends State<BrainApp> {
           child: (_pageOptions[_selectedPage]),
         ),
         bottomNavigationBar: SizedBox(
-          height: 78,
           child: BottomNavigationBar(
             iconSize: 20.0,
 //            unselectedFontSize: 0,

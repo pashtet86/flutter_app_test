@@ -12,6 +12,8 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         AppBar(
           backgroundColor: Colors.blue,
@@ -19,9 +21,27 @@ class _HomeState extends State<Home> {
           centerTitle: true,
           elevation: 2,
         ),
-        Container(
-          child: Text('bla'),
-        )
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'WE',
+                textAlign: TextAlign.left,
+                style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(255, 0, 150, 1)),
+              ),
+              Text(
+                'ARE',
+                style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(0, 240, 240, 1)),
+              ),
+              Text(
+                'BRAIN',
+                style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(255, 239, 0, 1)),
+              ),
+            ],
+          ),
+        ),
       ],
 
 

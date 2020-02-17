@@ -10,7 +10,7 @@ class _PersonState extends State<Person> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: SafeArea(child: Text('home page')),
+      body: SafeArea(child: Text('asdasd')),
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Text('Person'),

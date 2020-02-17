@@ -1,6 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+
 
 class News extends StatefulWidget {
   @override
@@ -9,37 +15,37 @@ class News extends StatefulWidget {
 
 class _PeopleNews extends State<News> {
 
+  Completer<WebViewController> _controller =Completer<WebViewController>();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WebviewScaffold(
+      url: 'https://www.wearebrain.com/blog',
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         title: Text('News'),
-        centerTitle: true,
-        elevation: 2,
+        actions: <Widget>[
+
+        ],
       ),
-//      bottomNavigationBar: BottomNavigationBar(
-//        iconSize: 30.0,
-//        selectedItemColor: Color.fromRGBO(255, 0, 150, 1),
-//        backgroundColor: Color.fromRGBO(0, 240, 240, 1),
-//        items: const <BottomNavigationBarItem>[
-//          BottomNavigationBarItem(
-//            icon: Icon(Icons.home),
-//            title: Text('Home'),
-//          ),
-//          BottomNavigationBarItem(
-//            icon: Icon(Icons.supervised_user_circle),
-//            title: Text('People'),
-//          ),
-//          BottomNavigationBarItem(
-//            icon: Icon(Icons.live_tv),
-//            title: Text('News'),
-//          ),
-//        ],
-//        currentIndex: _selectedIndex,
-//        onTap: _onItemTapped,
-//      ),
 
     );
+//    return Scaffold(
+//      appBar: AppBar(
+//        backgroundColor: Colors.blue,
+//        title: Text('News'),
+//        centerTitle: true,
+//        elevation: 2,
+//      ),
+//
+//      body: WebView(
+//        initialUrl: 'https://www.wearebrain.com/blog',
+//        javascriptMode: JavascriptMode.unrestricted,
+//        onWebViewCreated: (WebViewController controller) {
+//          _controller.complete(controller);
+//        }
+//      ),
+
+
+//    );
   }
 }
