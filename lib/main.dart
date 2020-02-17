@@ -46,11 +46,11 @@ class _BrainAppState extends State<BrainApp> {
         ),
         bottomNavigationBar: SizedBox(
           child: BottomNavigationBar(
-            iconSize: 20.0,
+//            iconSize: 20.0,
 //            unselectedFontSize: 0,
 //            selectedFontSize: 10,
-            selectedItemColor: Color.fromRGBO(255, 0, 150, 1),
-            backgroundColor: Color.fromRGBO(0, 240, 240, 1),
+            selectedItemColor: Color.fromRGBO(255, 255, 255, 1),
+            backgroundColor: Color.fromRGBO(255, 0, 150, 1),
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),

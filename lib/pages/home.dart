@@ -10,13 +10,14 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
   double _opacityLevel = 0.0;
   double _containerWidth = 0.0;
+  double _containerHeight = 0.0;
 
   initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 1000), () {
+    Future.delayed(const Duration(milliseconds: 200), () {
       setState(() {
         _opacityLevel = 1;
-        _containerWidth = 500;
+        _containerHeight = 100;
       });
     });
 
@@ -41,28 +42,46 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               AnimatedContainer(
-                width: _containerWidth,
-                height: 100,
-                duration: Duration(milliseconds: 1500),
+                width: 350,
+                height: _containerHeight,
+                duration: Duration(milliseconds: 250),
+                curve: Curves.easeInOut,
                 alignment: Alignment.center,
-                child: AnimatedOpacity(
-                  opacity: _opacityLevel,
-                  duration: Duration(seconds: 1),
-                  child: Text(
-                    'WE',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(255, 0, 150, 1)),
-                  ),
+                child: Text(
+                  'WE',
+                  overflow: TextOverflow.fade,
+                  softWrap: false,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(255, 0, 150, 1)),
                 ),
               ),
 
-              Text(
-                'ARE',
-                style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(0, 240, 240, 1)),
+              AnimatedContainer(
+                width: 350,
+                height: _containerHeight,
+                duration: Duration(milliseconds: 400),
+                curve: Curves.easeIn,
+                alignment: Alignment.center,
+                child: Text(
+                  'ARE',
+                  overflow: TextOverflow.fade,
+                  softWrap: false,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(0, 240, 240, 1)),
+                ),
               ),
-              Text(
-                'BRAIN',
-                style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(255, 239, 0, 1)),
+              AnimatedContainer(
+                width: 350,
+                height: _containerHeight,
+                duration: Duration(milliseconds: 250),
+                curve: Curves.easeInOut,
+                alignment: Alignment.center,
+                child: Text(
+                  'BRAIN',
+                  softWrap: false,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(255, 239, 0, 1)),
+                ),
               ),
             ],
           ),
