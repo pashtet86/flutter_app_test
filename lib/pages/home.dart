@@ -8,6 +8,20 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
+  double _opacityLevel = 0.0;
+  double _containerWidth = 0.0;
+
+  initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      setState(() {
+        _opacityLevel = 1;
+        _containerWidth = 500;
+      });
+    });
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +40,22 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(
-                'WE',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(255, 0, 150, 1)),
+              AnimatedContainer(
+                width: _containerWidth,
+                height: 100,
+                duration: Duration(milliseconds: 1500),
+                alignment: Alignment.center,
+                child: AnimatedOpacity(
+                  opacity: _opacityLevel,
+                  duration: Duration(seconds: 1),
+                  child: Text(
+                    'WE',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(255, 0, 150, 1)),
+                  ),
+                ),
               ),
+
               Text(
                 'ARE',
                 style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(0, 240, 240, 1)),
@@ -42,6 +67,7 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
+
       ],
 
 
