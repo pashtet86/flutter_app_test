@@ -31,6 +31,7 @@ class _BrainAppState extends State<BrainApp> {
 
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Test',
       routes: {
         '/home': (context) => Home(),
