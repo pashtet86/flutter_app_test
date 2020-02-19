@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/helpers/utils.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -83,6 +82,7 @@ class _HomeState extends State<Home> {
                   style: TextStyle(fontFamily: 'Avenir-Black', fontWeight: FontWeight.w700, fontSize: 90, color: Color.fromRGBO(255, 239, 0, 1)),
                 ),
               ),
+              Image.network('https://i.giphy.com/N256GFy1u6M6Y.gif'),
             ],
           ),
         ),

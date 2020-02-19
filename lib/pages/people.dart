@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../interfaces/person.dart';
+import 'person_item.dart';
 
 class People extends StatefulWidget {
   @override
@@ -11,13 +13,13 @@ class _PeopleState extends State<People> {
     Navigator.pushNamed(context, '/person');
   }
 
-  List<String> people = [
-    'Pavel Bazhenov',
-    'Pavel Shishko',
-    'Pavel Kozhokar',
+  List<Person> people = [
+    Person(name: 'Pavel Bazhenov', position: 'man', city: "Kiev"),
+    Person(name: 'Pavel Shishko', position: 'man', city: "Kiev"),
+    Person(name: 'Pavel Kozhokar', position: 'man', city: "Kiev"),
   ];
 
-  Widget personTemplate(person){
+  Widget personTemplate(person) {
     return Card(
       margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
       child: Padding(
@@ -51,8 +53,7 @@ class _PeopleState extends State<People> {
 
             ],
           ),
-        )
-
+        ),
       ),
     );
   }
@@ -68,7 +69,7 @@ class _PeopleState extends State<People> {
       ),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: people.map((person) => personTemplate(person)).toList(),
+          children: people.map((person) => PersonItem(person: person)).toList(),
       ),
 //      bottomNavigationBar: BottomNavigationBar(
 //        iconSize: 30.0,
